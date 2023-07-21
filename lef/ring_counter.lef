@@ -1,0 +1,134 @@
+VERSION 5.7 ;
+  NOWIREEXTENSIONATPIN ON ;
+  DIVIDERCHAR "/" ;
+  BUSBITCHARS "[]" ;
+MACRO ring_counter
+  CLASS BLOCK ;
+  FOREIGN ring_counter ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 200.000 BY 250.000 ;
+  PIN Clock
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER Metal2 ;
+        RECT 198.240 246.000 198.800 250.000 ;
+    END
+  END Clock
+  PIN Count_out[0]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER Metal2 ;
+        RECT 0.000 0.000 0.560 4.000 ;
+    END
+  END Count_out[0]
+  PIN Count_out[1]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER Metal2 ;
+        RECT 107.520 246.000 108.080 250.000 ;
+    END
+  END Count_out[1]
+  PIN Count_out[2]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER Metal2 ;
+        RECT 181.440 0.000 182.000 4.000 ;
+    END
+  END Count_out[2]
+  PIN Count_out[3]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER Metal3 ;
+        RECT 0.000 87.360 4.000 87.920 ;
+    END
+  END Count_out[3]
+  PIN Reset
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER Metal3 ;
+        RECT 196.000 161.280 200.000 161.840 ;
+    END
+  END Reset
+  PIN io_oeb[0]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER Metal2 ;
+        RECT 90.720 0.000 91.280 4.000 ;
+    END
+  END io_oeb[0]
+  PIN io_oeb[1]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER Metal3 ;
+        RECT 0.000 178.080 4.000 178.640 ;
+    END
+  END io_oeb[1]
+  PIN io_oeb[2]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER Metal2 ;
+        RECT 16.800 246.000 17.360 250.000 ;
+    END
+  END io_oeb[2]
+  PIN io_oeb[3]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER Metal3 ;
+        RECT 196.000 70.560 200.000 71.120 ;
+    END
+  END io_oeb[3]
+  PIN vccd1
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER Metal4 ;
+        RECT 12.920 15.380 14.520 231.580 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 166.520 15.380 168.120 231.580 ;
+    END
+  END vccd1
+  PIN vssd1
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER Metal4 ;
+        RECT 89.720 15.380 91.320 231.580 ;
+    END
+  END vssd1
+  OBS
+      LAYER Metal1 ;
+        RECT 6.720 15.380 193.200 231.580 ;
+      LAYER Metal2 ;
+        RECT 0.140 245.700 16.500 246.000 ;
+        RECT 17.660 245.700 107.220 246.000 ;
+        RECT 108.380 245.700 197.940 246.000 ;
+        RECT 0.140 4.300 198.660 245.700 ;
+        RECT 0.860 4.000 90.420 4.300 ;
+        RECT 91.580 4.000 181.140 4.300 ;
+        RECT 182.300 4.000 198.660 4.300 ;
+      LAYER Metal3 ;
+        RECT 0.090 178.940 198.710 242.340 ;
+        RECT 4.300 177.780 198.710 178.940 ;
+        RECT 0.090 162.140 198.710 177.780 ;
+        RECT 0.090 160.980 195.700 162.140 ;
+        RECT 0.090 88.220 198.710 160.980 ;
+        RECT 4.300 87.060 198.710 88.220 ;
+        RECT 0.090 71.420 198.710 87.060 ;
+        RECT 0.090 70.260 195.700 71.420 ;
+        RECT 0.090 7.980 198.710 70.260 ;
+  END
+END ring_counter
+END LIBRARY
+
