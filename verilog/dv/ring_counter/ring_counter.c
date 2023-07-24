@@ -61,9 +61,9 @@ void main()
 	// Observe counter value in the testbench
 	reg_mprj_io_8 =  GPIO_MODE_USER_STD_OUTPUT;
 	reg_mprj_io_9 =  GPIO_MODE_USER_STD_OUTPUT;
-	reg_mprj_io_10 =  GPIO_MODE_USER_STD_OUTPUT;
-	reg_mprj_io_11 =  GPIO_MODE_USER_STD_OUTPUT;
-	reg_mprj_io_12 = GPIO_MODE_USER_STD_INPUT_NOPULL;
+	reg_mprj_io_10 = GPIO_MODE_USER_STD_OUTPUT;
+	reg_mprj_io_11 = GPIO_MODE_USER_STD_OUTPUT;
+	//reg_mprj_io_12 = GPIO_MODE_USER_STD_INPUT_NOPULL;
 
 
 	/* Apply configuration */

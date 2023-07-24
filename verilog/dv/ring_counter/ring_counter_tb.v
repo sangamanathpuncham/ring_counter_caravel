@@ -17,6 +17,7 @@
 
 `timescale 1 ns / 1 ps
 
+ 
 module ring_counter_tb;
 	reg clock;
 	reg RSTB;
@@ -27,11 +28,11 @@ module ring_counter_tb;
 	wire gpio;
 	wire [37:0] mprj_io;
 	wire [3:0] mprj_io_0;
-	//reg mprj_io_1;
+	reg mprj_io_1;
 
-	assign mprj_io_0 = mprj_io[11:8];
-	//assign mprj_io[12]=mprj_io_1;
-	// assign mprj_io_0 = {mprj_io[8:4],mprj_io[2:0]};
+	assign mprj_io_0[3:0] = mprj_io[11:8];
+	assign mprj_io[11]=mprj_io_1;
+       //assign mprj_io_0 = {mprj_io[8:4],mprj_io[2:0]};
 
 	assign mprj_io[3] = (CSB == 1'b1) ? 1'b1 : 1'bz;
 	// assign mprj_io[3] = 1'b1;
@@ -163,14 +164,14 @@ module ring_counter_tb;
 
 	initial begin
 	    // Observe Output pins [7:0]
-		wait(mprj_io_0 == 4'b0001);
-		wait(mprj_io_0 == 4'b0010);
-		wait(mprj_io_0 == 4'b0011);
-		wait(mprj_io_0 == 4'b0100);
-		wait(mprj_io_0 == 4'b0101);
-		wait(mprj_io_0 == 4'b0110);
-		wait(mprj_io_0 == 4'b0111);
 		wait(mprj_io_0 == 4'b1000);
+		wait(mprj_io_0 == 4'b0100);
+		wait(mprj_io_0 == 4'b0010);
+		wait(mprj_io_0 == 4'b0001);
+		//wait(mprj_io_0 == 4'b1000);
+		//wait(mprj_io_0 == 4'b0110);
+		//wait(mprj_io_0 == 4'b0111);
+		//wait(mprj_io_0 == 4'b1000);
 		
 		`ifdef GL
 	    	$display("Monitor: Test 1 Mega-Project IO (GL) Passed");
@@ -187,7 +188,7 @@ module ring_counter_tb;
 		RSTB <= 1'b1;	    	// Release reset
 		#3_00_000;
 		CSB = 1'b0;		// CSB can be released
-		//mprj_io_1 <= 1'b1;
+		mprj_io_1 <= 1'b1;
 	
 	end
 
@@ -224,7 +225,7 @@ module ring_counter_tb;
 	assign VSS = 1'b0;
 
 	caravel uut (
-	       .vddio   (VDD3V3),
+	        .vddio   (VDD3V3),
 		.vddio_2  (VDD3V3),
 		.vssio	  (VSS),
 		.vssio_2  (VSS),
