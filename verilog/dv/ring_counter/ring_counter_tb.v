@@ -28,10 +28,10 @@ module ring_counter_tb;
 	wire gpio;
 	wire [37:0] mprj_io;
 	wire [3:0] mprj_io_0;
-	reg mprj_io_1;
+	//reg mprj_io_1;
 
 	assign mprj_io_0[3:0] = mprj_io[11:8];
-	assign mprj_io[11]=mprj_io_1;
+	//assign mprj_io[11]= 1'b1;
        //assign mprj_io_0 = {mprj_io[8:4],mprj_io[2:0]};
 
 	assign mprj_io[3] = (CSB == 1'b1) ? 1'b1 : 1'bz;
@@ -164,10 +164,10 @@ module ring_counter_tb;
 
 	initial begin
 	    // Observe Output pins [7:0]
-		wait(mprj_io_0 == 4'b1000);
-		wait(mprj_io_0 == 4'b0100);
-		wait(mprj_io_0 == 4'b0010);
 		wait(mprj_io_0 == 4'b0001);
+		wait(mprj_io_0 == 4'b0010);
+		wait(mprj_io_0 == 4'b0100);
+		wait(mprj_io_0 == 4'b1000);
 		//wait(mprj_io_0 == 4'b1000);
 		//wait(mprj_io_0 == 4'b0110);
 		//wait(mprj_io_0 == 4'b0111);
@@ -188,7 +188,7 @@ module ring_counter_tb;
 		RSTB <= 1'b1;	    	// Release reset
 		#3_00_000;
 		CSB = 1'b0;		// CSB can be released
-		mprj_io_1 <= 1'b1;
+		//mprj_io_1 <= 1'b1;
 	
 	end
 
